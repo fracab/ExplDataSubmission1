@@ -1,0 +1,7 @@
+DF<-read.csv("household_power_consumption.txt", sep=";")
+DFs<-subset(DF, Date=="1/2/2007"| Date=="2/2/2007")
+DFs$Date<-as.Date(DFs$Date, format="%d/%m/%Y")
+DFs$Global_active_power<-as.numeric(paste(DFs$Global_active_power))
+png(file="plot1.png")
+hist(DFs$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowats)", col="red")
+dev.off()
